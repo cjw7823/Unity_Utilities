@@ -7,11 +7,13 @@ using UnityEngine;
 
 public class NLogUnityLogger : MonoBehaviour
 {
+    [SerializeField] private string logFolderName = "";
+    
     public void Awake()
     {
         string dataFolder = Application.dataPath;
         string exeFolder  = Directory.GetParent(dataFolder).FullName;
-        string logPath = Path.Combine(exeFolder, "NLog_Madex2025");
+        string logPath = Path.Combine(exeFolder, logFolderName);
 
         if (!Directory.Exists(logPath))
         {
